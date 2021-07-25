@@ -17,8 +17,7 @@ class CreateTodosTable extends Migration
             $table->id();
             $table->text('title');
             $table->text('description');
-            $table->string('created_at', 19);
-            $table->string('updated_at', 19);
+            $table->timestamps();
         });
     }
 

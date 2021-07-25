@@ -11,10 +11,10 @@ class Todo extends Model
 
     protected $table = 'todos';
 
+    public $timestamps = true;
+
     protected $fillable = [
         'title',
         'description',
-        'created_at',
-        'updated_at',
     ];
 }

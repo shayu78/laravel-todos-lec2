@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>Список всех дел</h3>
+    <h3>Список всех задач</h3>
     <table class="table table-bordered">
         <tr>
             <th>Ид.</th>

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todo;
-use Carbon\Carbon;
+// use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
 
 class TodoController extends Controller
@@ -33,7 +33,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = DB::table('todos')->get();
+        // $todos = DB::table('todos')->get();
+        $todos = Todo::get();
         return view('todos.index', ['todos' => $todos]);
         // return $todos;
         // return Response::json($todos)
@@ -51,13 +52,13 @@ class TodoController extends Controller
      */
     public function create()
     {
-        $date = Carbon::now()->format('Y-m-d H:i:s');
+        // $date = Carbon::now()->format('Y-m-d H:i:s');
         $index = array_rand($this->titles);
         Todo::create([
             'title' => $this->titles[$index],
             'description' => $this->descriptions[$index],
-            'created_at' => $date,
-            'updated_at' => $date,
+            // 'created_at' => $date,
+            // 'updated_at' => $date,
         ]);
         return redirect()->route('todos.index');
     }
@@ -82,7 +83,7 @@ class TodoController extends Controller
     public function show($id)
     {
         $todo = Todo::find($id);
-        if ($todo) return view('todos.show', ['todo' => $todo]);
+        return view('todos.show', ['todo' => $todo]);
         // return $todo;
         // $response = Response::json($todo);
         // return $response->setEncodingOptions(
